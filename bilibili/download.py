@@ -4,7 +4,7 @@ import os
 import time
 import threading
 
-URL = 'https://www.bilibili.com/video/avxxxxxxx'
+URL = 'https://www.bilibili.com/video/av16653470'
 limit = 5
 lock = threading.RLock()
 
@@ -16,8 +16,8 @@ def run(i):
         limit += 1
 
 
-i = 7
-while i <= 30:
+i = 1
+while i <= 24:
     time.sleep(2)
     with lock:
         if limit > 0:
