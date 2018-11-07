@@ -1,13 +1,21 @@
 #!/bin/python3
 
+import sys
 import requests
 from bs4 import BeautifulSoup
 
 BASE_URL = 'https://www.xxxxx.com'
-CURRENT_URL = '/html/59/59872/24380385.html'
 
-out = open('xxxxxx.txt', 'w')
+CURRENT_URL = sys.argv[1]
+CURRENT_URL = CURRENT_URL.replace(BASE_URL, '')
+print(CURRENT_URL)
+
 s = requests.Session()
+
+r = s.get(BASE_URL + CURRENT_URL)
+res = BeautifulSoup(r.content)
+name = res.find(id='amain').find('dl').find('dt').findAll('a')[-1].string
+out = open(f'{name}.txt', 'w')
 
 while True:
     r = s.get(BASE_URL + CURRENT_URL)
@@ -27,3 +35,5 @@ while True:
 
     if CURRENT_URL[-4:] != 'html':
         break
+
+out.close()
