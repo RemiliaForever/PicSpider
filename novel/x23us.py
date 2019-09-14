@@ -4,7 +4,7 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 
-BASE_URL = 'https://www.xxxxx.com'
+BASE_URL = 'https://www.x23us.com'
 
 CURRENT_URL = sys.argv[1]
 CURRENT_URL = CURRENT_URL.replace(BASE_URL, '')
